@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kodbank | Register & Login</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="animated-bg"></div>
+    <main class="auth-page">
+      <section class="glass-card">
+        <h1>Kodbank</h1>
+        <p class="tagline">Secure modern banking for customers.</p>
+
+        <div class="tab-buttons">
+          <button id="registerTab" class="tab active">Register</button>
+          <button id="loginTab" class="tab">Login</button>
+        </div>
+
+        <form id="registerForm" class="form active">
+          <input type="text" id="regUid" placeholder="UID" required />
+          <input type="text" id="regUsername" placeholder="Username" required />
+          <input type="email" id="regEmail" placeholder="Email" required />
+          <input type="tel" id="regPhone" placeholder="Phone" required />
+          <input type="password" id="regPassword" placeholder="Password" required />
+          <input type="text" id="regRole" value="Customer" readonly />
+          <button type="submit">Create Account</button>
+        </form>
+
+        <form id="loginForm" class="form">
+          <input type="text" id="loginUsername" placeholder="Username" required />
+          <input type="password" id="loginPassword" placeholder="Password" required />
+          <button type="submit">Login</button>
+        </form>
+
+        <p id="message" class="message"></p>
+      </section>
+    </main>
+    <script src="/js/auth.js"></script>
+  </body>
+</html>

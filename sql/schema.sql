@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS KodUser (
+  uid VARCHAR(50) PRIMARY KEY,
+  username VARCHAR(100) NOT NULL UNIQUE,
+  email VARCHAR(150) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  balance DECIMAL(15, 2) NOT NULL DEFAULT 100000.00,
+  phone VARCHAR(20) NOT NULL,
+  role ENUM('Customer') NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS UserToken (
+  tid INT AUTO_INCREMENT PRIMARY KEY,
+  token TEXT NOT NULL,
+  uid VARCHAR(50) NOT NULL,
+  expiry DATETIME NOT NULL,
+  CONSTRAINT fk_user_token_uid FOREIGN KEY (uid) REFERENCES KodUser(uid) ON DELETE CASCADE
+);
+
+CREATE INDEX idx_user_token_uid ON UserToken(uid);
+CREATE INDEX idx_user_token_expiry ON UserToken(expiry);
